@@ -9,6 +9,11 @@
     <f:entry title="${%Owner}" field="repoOwner">
         <f:textbox/>
     </f:entry>
+    <j:if test="${!descriptor.apiUriSelectable}">
+        <f:entry title="${%API endpoint}" field="apiUri">
+            <f:select/>
+        </f:entry>
+    </j:if>
     <f:entry title="${%Scan credentials}" field="scanCredentialsId">
         <c:select/>
     </f:entry>
@@ -16,11 +21,6 @@
         <f:textbox default=".*"/>
     </f:entry>
     <f:advanced>
-        <j:if test="${!descriptor.apiUriSelectable}">
-            <f:entry title="${%API endpoint}" field="apiUri">
-                <f:select/>
-            </f:entry>
-        </j:if>
         <f:entry title="${%Checkout credentials}" field="checkoutCredentialsId">
             <c:select default="${descriptor.SAME}"/>
         </f:entry>
